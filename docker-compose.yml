@@ -1,0 +1,6 @@
+version: "3.9"
+
+services:
+  data-logger:
+    container_name: data-logger
+    image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger
