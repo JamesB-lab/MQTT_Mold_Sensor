@@ -12,6 +12,7 @@ import pandas as pd
 from datetime import datetime
 import sqlalchemy
 import passwords
+import os
 
 ####Connect to AWS PostgreSQL database####
 
@@ -66,8 +67,12 @@ def on_message(client, userdata, msg):
     
 
 
+client_id = os.getenv('CLIENT_ID') #Specifiy client and protocol for variable sensor inputs
+if client_id is None:
+    client_id = 'mqtt_mold_detector_default'
+print(f'client_id = {client_id}')
 
-client = mqtt.Client(client_id='JamesMacBook', protocol=mqtt.MQTTv5) #Specifiy client and protocol
+client = mqtt.Client(client_id=client_id, protocol=mqtt.MQTTv5) #Specifiy client and protocol
 client.tls_set(ca_certs= './Certs/AmazonRootCA1.pem',certfile='./Certs/certificate.pem.crt', keyfile='./Certs/private.pem.key', tls_version=2)
 #Configure TLS credentials for AWS security
 client.on_connect = on_connect

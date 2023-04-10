@@ -3,4 +3,20 @@ version: "3.9"
 services:
   data-logger:
     container_name: data-logger
-    image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger
+    build:
+      dockerfile: ./data-logger.Dockerfile
+    # image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger
+    environment:
+      - CLIENT_ID=data_logger_ec2
+    restart: unless-stopped
+
+  dashboard:
+    container_name: dashboard
+    # build:
+    #   dockerfile: ./node-red.Dockerfile
+    image: nodered/node-red
+    ports:
+      - 1880:1880
+    restart: unless-stopped
+    volumes:
+      - ./node-red-data:/data

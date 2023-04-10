@@ -1,0 +1,674 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "MQTT Mold Detector",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "15d292aad746d3c1",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Living room",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a6c2c0353b52c4db",
+            "aa854da113684e8c"
+        ],
+        "x": 914,
+        "y": 179,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "fea330b1c82eae91",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Kitchen",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0589766ce6c2ed84",
+            "56581fbb525c629c"
+        ],
+        "x": 914,
+        "y": 339,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "a025f9bb50d63f23",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Bedroom",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f21ab5a94f863ad2",
+            "4a93a359ba1b51cf"
+        ],
+        "x": 914,
+        "y": 499,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "98e90b3bfc816ac1",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Test room",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b2655c04b6153833",
+            "fbbd20f9fada1e6c"
+        ],
+        "x": 914,
+        "y": 659,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "6d895606bd3d7871",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Living room",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a6c2c0353b52c4db",
+            "aa854da113684e8c"
+        ],
+        "x": 914,
+        "y": 179,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "f6f0088c9c7b77c0",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Kitchen",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0589766ce6c2ed84",
+            "56581fbb525c629c"
+        ],
+        "x": 914,
+        "y": 339,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "afe90bfe7e21a941",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Bedroom",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f21ab5a94f863ad2",
+            "4a93a359ba1b51cf"
+        ],
+        "x": 914,
+        "y": 499,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "6c22919a452600e9",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Test room",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b2655c04b6153833",
+            "fbbd20f9fada1e6c"
+        ],
+        "x": 914,
+        "y": 659,
+        "w": 192,
+        "h": 122
+    },
+    {
+        "id": "19b3235baba5f762",
+        "type": "mqtt-broker",
+        "name": "AWS IOT Core",
+        "broker": "a24kyzcmr4cd4k-ats.iot.eu-west-2.amazonaws.com",
+        "port": "8883",
+        "tls": "72c65dacb68a247b",
+        "clientid": "node-red-dashboard",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": false,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "72c65dacb68a247b",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "4b67354bfe136affd8f35f9fcdaa232a1e895e22a816fb9714e67e8f50980c20-certificate.pem.crt",
+        "keyname": "4b67354bfe136affd8f35f9fcdaa232a1e895e22a816fb9714e67e8f50980c20-private.pem.key",
+        "caname": "AmazonRootCA1 (1).pem",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "a49d799a4d2d6cd5",
+        "type": "ui_tab",
+        "name": "Mold detector",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f2341b72419065ef",
+        "type": "ui_group",
+        "name": "Living room",
+        "tab": "a49d799a4d2d6cd5",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9278827989415bde",
+        "type": "ui_group",
+        "name": "Kitchen",
+        "tab": "a49d799a4d2d6cd5",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e56d1bab4bacd9d0",
+        "type": "ui_group",
+        "name": "Bedroom",
+        "tab": "a49d799a4d2d6cd5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dace86f94fe49f85",
+        "type": "ui_group",
+        "name": "Test room",
+        "tab": "a49d799a4d2d6cd5",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f8fad96d112a8b39",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "06f5b1824391239f",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "AWS picow/+/TempHumidity",
+        "topic": "picow/+/TempHumidity",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "19b3235baba5f762",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 400,
+        "wires": [
+            [
+                "e60abfac1fe908ac"
+            ]
+        ]
+    },
+    {
+        "id": "e60abfac1fe908ac",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Python dict to JSON",
+        "func": "const payload = JSON.parse(msg.payload.replaceAll('\\'', '\"'));\npayload.room = msg.topic.split('/')[1]\nreturn {\n    payload: payload,\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "f50bf4cfb9d2ca2a"
+            ]
+        ]
+    },
+    {
+        "id": "f50bf4cfb9d2ca2a",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "payload.room",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "LivingRoom",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Kitchen",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Bedroom",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "TestRoom",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "a6c2c0353b52c4db",
+                "aa854da113684e8c"
+            ],
+            [
+                "0589766ce6c2ed84",
+                "56581fbb525c629c"
+            ],
+            [
+                "f21ab5a94f863ad2",
+                "4a93a359ba1b51cf"
+            ],
+            [
+                "b2655c04b6153833",
+                "fbbd20f9fada1e6c"
+            ]
+        ]
+    },
+    {
+        "id": "a6c2c0353b52c4db",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "6d895606bd3d7871",
+        "name": "",
+        "group": "f2341b72419065ef",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "degC",
+        "format": "{{msg.payload.Temperature}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#007db3",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "aa854da113684e8c",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "6d895606bd3d7871",
+        "name": "",
+        "group": "f2341b72419065ef",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.payload.Humidity}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#007db3"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "0589766ce6c2ed84",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "f6f0088c9c7b77c0",
+        "name": "",
+        "group": "9278827989415bde",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "degC",
+        "format": "{{msg.payload.Temperature}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#007db3",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "56581fbb525c629c",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "f6f0088c9c7b77c0",
+        "name": "",
+        "group": "9278827989415bde",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.payload.Humidity}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#007db3"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f21ab5a94f863ad2",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "afe90bfe7e21a941",
+        "name": "",
+        "group": "e56d1bab4bacd9d0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "degC",
+        "format": "{{msg.payload.Temperature}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#007db3",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4a93a359ba1b51cf",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "afe90bfe7e21a941",
+        "name": "",
+        "group": "e56d1bab4bacd9d0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.payload.Humidity}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#007db3"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b2655c04b6153833",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "6c22919a452600e9",
+        "name": "",
+        "group": "dace86f94fe49f85",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "degC",
+        "format": "{{msg.payload.Temperature}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#007db3",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 1010,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "fbbd20f9fada1e6c",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "g": "6c22919a452600e9",
+        "name": "",
+        "group": "dace86f94fe49f85",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{msg.payload.Humidity}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#007db3"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 740,
+        "wires": []
+    }
+]
