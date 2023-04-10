@@ -1,10 +1,13 @@
+#Project documentation for MQTT Mold Detector usign Raspbery Pi Pico W and DHT22 AM203 sensors
+#Developed by J Booth April 2023
+#This script reads data from our AWS hosted database an returns the average temperature and humidity within the past hour
+#These values are passed to if/else logic to determine if conditions are met to trigger a mold growth warning
+#If true to script runs a curl command to send a push notification via IFTTT app 
 #https://maker.ifttt.com/trigger/Notify/json/with/key/dVGiOllK5fPN-mo5A_6K7J
 
-import paho.mqtt.client as mqtt
+
 import pandas as pd
-from datetime import datetime
 import sqlalchemy
-import requests
 import passwords
 import os
 import time
@@ -30,13 +33,12 @@ def init_connection_engine():
     return engine
 
 engine = init_connection_engine()
-
 con = engine.connect()
 
 
 
-
-
+####Create while loop####
+####SQLAlchemy returns data from the DB within the past hour and groups by room
 while True:
     data = pd.read_sql(""" 
                         SELECT AVG("Temperature") AS avg_temp, AVG("Humidity") AS avg_hum, room 
@@ -50,7 +52,7 @@ while True:
 
     print(data)
 
-    for index, row in data.iterrows():
+    for index, row in data.iterrows(): #We use a for loop to itterate over the dataframes rows to give us values for each room
         print(row['avg_temp'], row['avg_hum'], row['room'])
         temp = row['avg_temp']
         humidity = row['avg_hum']
@@ -58,21 +60,23 @@ while True:
 
 
 
-        if temp >= 20 and humidity >= 45:
+        if temp >= 15.5 and temp <18.3 and humidity >= 72:
             os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
-            #requests.post("https://maker.ifttt.com/trigger/Notify/json/with/key/dVGiOllK5fPN-mo5A_6K7J", data)
+
+        elif temp >= 18.3 and temp <21.1 and humidity >= 70:
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+
+        elif temp >= 21.1 and temp <23.9 and humidity >= 66:
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+
+        elif temp >= 23.9 and temp <26.7 and humidity >= 65:
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+
+        elif temp >= 26.7 and temp <29.4 and humidity >= 65:
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+
+        elif humidity >= 80:
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+            
     
-    time.sleep(3600) #Delay for 1 hour
-
-
-
-
-
-
-    # temp = data.loc[:, 'Temperature'].mean()
-    # print(f'Average Temperature: {temp}')
-    # humidity = data['Humidity'].mean()
-    # print(f'Average Humidity {humidity}')
-    # #print(data)
-    # room = data.iloc[0]['room']
-    # # print (f'Room: {room}')
+    time.sleep(3600) #Delay for 1 hour to prevent spamming of push notifications and allow sensor values to reset
