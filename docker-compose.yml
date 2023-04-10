@@ -31,5 +31,5 @@ services:
     #   - ./node-red-data:/data
     image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-dashboard
     ports:
-      - 1880:1880
+      - 80:1880
     restart: unless-stopped
