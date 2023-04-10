@@ -21,4 +21,4 @@ COPY Certs Certs
 COPY DataLogger DataLogger
 
 # Run application
-CMD ["python", "-u", "DataLogger/dataLogger.py"]
+CMD ["python", "-u", "DataLogger/IFTTTNotification.py"]

@@ -3,20 +3,33 @@ version: "3.9"
 services:
   data-logger:
     container_name: data-logger
-    build:
-      dockerfile: ./data-logger.Dockerfile
-    # image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger
+    # build:
+    #   dockerfile: ./data-logger.Dockerfile
+    image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger
     environment:
       - CLIENT_ID=data_logger_ec2
     restart: unless-stopped
 
+  data-aggregator:
+    container_name: data-aggregator
+    # build:
+    #   dockerfile: ./data-aggregator.Dockerfile
+    image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-aggregator
+    restart: unless-stopped
+
+  push-notifications:
+    container_name: push-notifications
+    # build:
+    #   dockerfile: ./push-notifications.Dockerfile
+    image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-push-notifications
+    restart: unless-stopped
+
   dashboard:
     container_name: dashboard
-    # build:
-    #   dockerfile: ./node-red.Dockerfile
-    image: nodered/node-red
+    # image: nodered/node-red
+    # volumes:
+    #   - ./node-red-data:/data
+    image: 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-dashboard
     ports:
       - 1880:1880
     restart: unless-stopped
-    volumes:
-      - ./node-red-data:/data
