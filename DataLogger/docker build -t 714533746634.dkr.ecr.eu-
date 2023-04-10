@@ -1,0 +1,2 @@
+docker build -t 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger .
+docker push 714533746634.dkr.ecr.eu-west-2.amazonaws.com/mold-detector-mqtt-data-logger

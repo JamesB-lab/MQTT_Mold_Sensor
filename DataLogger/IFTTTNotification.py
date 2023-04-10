@@ -5,7 +5,8 @@ import pandas as pd
 from datetime import datetime
 import sqlalchemy
 import requests
-from Certs import passwords
+import passwords
+import os
 
 
 
@@ -31,24 +32,43 @@ engine = init_connection_engine()
 
 con = engine.connect()
 
+
+
+
+
 while True:
-    data = pd.read_sql("""SELECT * FROM public."MQTTRead" m ORDER BY "LoggedTime" DESC LIMIT 2;""", con)
+    data = pd.read_sql("""SELECT AVG("Temperature") AS avg_temp, AVG("Humidity") AS avg_hum, room 
+FROM "MQTTRead"
+GROUP BY "room" 
+ORDER BY "room" 
+;""", 
+    con)
 
-    # print(data)
+    print(data)
 
-    temp = data.loc[:, 'Temperature'].mean()
-    print(f'Average Temperature: {temp}')
-    humidity = data['Humidity'].mean()
-    print(f'Average Humidity {humidity}')
-    # room = data['room']
-    # print (f'Room: {room}')
-
-    if temp >= 20 and humidity >= 50:
-        requests.post("https://maker.ifttt.com/trigger/Notify/json/with/key/dVGiOllK5fPN-mo5A_6K7J")
-        break
-
-
+    for index, row in data.iterrows():
+        print(row['avg_temp'], row['avg_hum'], row['room'])
+        temp = row['avg_temp']
+        humidity = row['avg_hum']
+        room = row['room']
 
 
 
+        if temp >= 20 and humidity >= 45:
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'","value2":"Kitchen","value3":"Bedroom"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+            #requests.post("https://maker.ifttt.com/trigger/Notify/json/with/key/dVGiOllK5fPN-mo5A_6K7J", data)
+    
+    break
 
+
+
+
+
+
+    # temp = data.loc[:, 'Temperature'].mean()
+    # print(f'Average Temperature: {temp}')
+    # humidity = data['Humidity'].mean()
+    # print(f'Average Humidity {humidity}')
+    # #print(data)
+    # room = data.iloc[0]['room']
+    # # print (f'Room: {room}')
