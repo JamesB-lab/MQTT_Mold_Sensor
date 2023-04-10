@@ -7,6 +7,7 @@ import sqlalchemy
 import requests
 import passwords
 import os
+import time
 
 
 
@@ -37,11 +38,14 @@ con = engine.connect()
 
 
 while True:
-    data = pd.read_sql("""SELECT AVG("Temperature") AS avg_temp, AVG("Humidity") AS avg_hum, room 
-FROM "MQTTRead"
-GROUP BY "room" 
-ORDER BY "room" 
-;""", 
+    data = pd.read_sql(""" 
+                        SELECT AVG("Temperature") AS avg_temp, AVG("Humidity") AS avg_hum, room 
+                        FROM "MQTTRead"
+                        WHERE "LoggedTime" >= (now() AT time ZONE 'utc') - INTERVAL '1 hour'
+                        GROUP BY "room" 
+                        ORDER BY "room" 
+                        ;
+                        """, 
     con)
 
     print(data)
@@ -55,10 +59,10 @@ ORDER BY "room"
 
 
         if temp >= 20 and humidity >= 45:
-            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'","value2":"Kitchen","value3":"Bedroom"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
+            os.system('curl -X POST -H "Content-Type: application/json" -d \'{"value1":"'+room+'"}\' https://maker.ifttt.com/trigger/Notify/with/key/dVGiOllK5fPN-mo5A_6K7J')
             #requests.post("https://maker.ifttt.com/trigger/Notify/json/with/key/dVGiOllK5fPN-mo5A_6K7J", data)
     
-    break
+    time.sleep(3600) #Delay for 1 hour
 
 
 
